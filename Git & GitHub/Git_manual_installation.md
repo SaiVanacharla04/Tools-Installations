@@ -157,7 +157,7 @@ ssh-keygen -t ed25519 -C "saivswaroop001@gmail.com"
 * Press **Enter** to accept default location
 * Use a passphrase if required by policy
 
-![SSH Key Generation](screenshots/ssh-keygen.png)
+![SSH Key Generation](screenshots/github-ssh-key.png)
 
 ---
 
