@@ -19,28 +19,11 @@ All VMs are provisioned using **VirtualBox** with **1 CPU and 1GB RAM** by defau
 
 ---
 
+
 ## VM Topology & Network Diagram
 
 ```
 
-```
-             +-----------------+
-             |     web01       |
-             | Ubuntu 25.04    |
-             | 192.168.56.11   |
-             +--------+--------+
-                      |
-                      | Private Network (192.168.56.x)
-                      |
-```
-
-+---------+------------+-------------+----------+
-|         |                          |          |
-+------+  +------+                   +------+   +------+
-| app01 |  | mc01 |                   | rmq01 |  | db01 |
-| CentOS|  | CentOS|                   | CentOS|  | CentOS|
-|192.168.56.12|192.168.56.14|192.168.56.16|192.168.56.15|
-+------+  +------+                   +------+   +------+
 
 <img width="783" height="546" alt="image" src="https://github.com/user-attachments/assets/317bfbcf-94b5-4b79-a387-755e8696f378" />
 
