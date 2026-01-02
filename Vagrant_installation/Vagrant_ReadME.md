@@ -1,11 +1,11 @@
+```markdown
+# Vagrant Environment Setup – Manual Provisioning
 
 ---
 
-# Vagrant Environment Setup – Manual Provisioning
-
 ## Overview
 
-This repository provides a **pre-configured multi-VM Vagrant environment** for development and testing. It includes:
+This repository provides a **pre-configured multi-VM Vagrant environment** for development and testing. It includes five VMs with private networking and shared folders:
 
 | VM Name | Role                        | OS           | Private IP    |
 | ------- | --------------------------- | ------------ | ------------- |
@@ -15,40 +15,62 @@ This repository provides a **pre-configured multi-VM Vagrant environment** for d
 | `mc01`  | Memcached                   | CentOS 7     | 192.168.56.14 |
 | `db01`  | Database Server             | CentOS 7     | 192.168.56.15 |
 
-All VMs are provisioned using **VirtualBox** and configured with **1 CPU and 1GB RAM** by default. Shared folders and private networks are pre-configured for seamless local development.
+All VMs are provisioned using **VirtualBox** with **1 CPU and 1GB RAM** by default. Shared folders and private networks are pre-configured for seamless local development.
 
 ---
-Got it! On **GitHub Markdown**, ASCII diagrams like this **must be inside triple backticks** to preserve spacing and formatting. Here’s the **correct way**:
+
+## VM Topology & Network Diagram
 
 ```
-# VM Topology & Network Diagram
+
+```
+             +-----------------+
+             |     web01       |
+             | Ubuntu 25.04    |
+             | 192.168.56.11   |
+             +--------+--------+
+                      |
+                      | Private Network (192.168.56.x)
+                      |
+```
+
++---------+------------+-------------+----------+
+|         |                          |          |
++------+  +------+                   +------+   +------+
+| app01 |  | mc01 |                   | rmq01 |  | db01 |
+| CentOS|  | CentOS|                   | CentOS|  | CentOS|
+|192.168.56.12|192.168.56.14|192.168.56.16|192.168.56.15|
++------+  +------+                   +------+   +------+
+
+<img width="783" height="546" alt="image" src="https://github.com/user-attachments/assets/317bfbcf-94b5-4b79-a387-755e8696f378" />
 
 
-<img width="648" height="486" alt="image" src="https://github.com/user-attachments/assets/1c2aa581-c16d-4fa8-b0ff-41f46a4fdd74" />
+````
 
+**Roles:**
+- `web01` – Frontend Nginx server  
+- `app01` – Application server (Tomcat)  
+- `rmq01` – RabbitMQ messaging broker  
+- `mc01` – Memcached caching server  
+- `db01` – Database backend  
 
-•	web01 serves as the frontend Nginx server.
-•	app01 hosts the application (Tomcat).
-•	rmq01 handles messaging with RabbitMQ.
-•	mc01 provides caching via Memcached.
-•	db01 runs the backend database.
-All VMs are connected through a private network (192.168.56.0/24) for secure inter-VM communication.
+> All VMs are connected through a **private network (192.168.56.0/24)** for secure inter-VM communication.
 
 ---
 
 ## Prerequisites
 
-1. **Vagrant** – Install the latest version from HashiCorp:
+1. **Vagrant** – Install the latest version:  
    [https://developer.hashicorp.com/vagrant/install](https://developer.hashicorp.com/vagrant/install)
 
-2. **VirtualBox** – Recommended version: 7.x. Download from:
+2. **VirtualBox** – Recommended version: 7.x  
    [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 3. **Vagrant Hostmanager Plugin** – Required for automatic `/etc/hosts` updates:
 
 ```bash
 vagrant plugin install vagrant-hostmanager
-```
+````
 
 4. **Vagrant Boxes** – Pre-downloaded boxes included in `D:/Vagrant`:
 
@@ -71,7 +93,7 @@ D:/Vagrant/local-setup/vagrant/Manual_provisioning/
 
 ## Vagrantfile Configuration
 
-The `Vagrantfile` uses **Vagrant 2.x syntax** and includes the following:
+The `Vagrantfile` uses **Vagrant 2.x syntax**:
 
 ```ruby
 Vagrant.configure("2") do |config|
@@ -135,7 +157,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> All VMs are installed **on the D: drive** by default, as Vagrant is executed from `D:/Vagrant`.
+> All VMs are installed **on the D: drive** by default.
 
 ---
 
@@ -186,3 +208,5 @@ vagrant destroy -f
 * **Vagrant Installation:** [https://developer.hashicorp.com/vagrant/install](https://developer.hashicorp.com/vagrant/install)
 * **CentOS Box:** [https://portal.cloud.hashicorp.com/vagrant/discover/centos/stream9](https://portal.cloud.hashicorp.com/vagrant/discover/centos/stream9)
 * **Ubuntu Box:** [https://portal.cloud.hashicorp.com/vagrant/discover/alvistack/ubuntu-25.04](https://portal.cloud.hashicorp.com/vagrant/discover/alvistack/ubuntu-25.04)
+
+```
