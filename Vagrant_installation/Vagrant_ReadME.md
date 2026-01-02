@@ -18,6 +18,39 @@ This repository provides a **pre-configured multi-VM Vagrant environment** for d
 All VMs are provisioned using **VirtualBox** and configured with **1 CPU and 1GB RAM** by default. Shared folders and private networks are pre-configured for seamless local development.
 
 ---
+VM Topology & Network Diagram
+                 +-----------------+
+                 |     web01       |
+                 | Ubuntu 25.04    |
+                 | 192.168.56.11   |
+                 +--------+--------+
+                          |
+                          | Private Network (192.168.56.x)
+                          |
+   +---------+------------+-------------+----------+
+   |         |                          |          |
++------+  +------+                   +------+   +------+
+| app01 |  | mc01 |                   | rmq01 |  | db01 |
+| CentOS|  | CentOS|                   | CentOS|  | CentOS|
+| 192.168.56.12 | 192.168.56.14 | 192.168.56.16 | 192.168.56.15 |
++------+  +------+                   +------+   +------+
+
+
+web01 serves as the frontend Nginx server.
+
+app01 hosts the application (Tomcat).
+
+rmq01 handles messaging with RabbitMQ.
+
+mc01 provides caching via Memcached.
+
+db01 runs the backend database.
+
+All VMs are connected through a private network (192.168.56.0/24) for secure inter-VM communication.
+
+
+
+---
 
 ## Prerequisites
 
