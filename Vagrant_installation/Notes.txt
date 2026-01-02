@@ -1,0 +1,62 @@
+ping web01
+ping db01
+ping mc01
+ping db01
+ping rmq01
+
+output::
+Pinging web01 [192.168.56.11] with 32 bytes of data:
+Reply from 192.168.56.11: bytes=32 time=1ms TTL=64
+Reply from 192.168.56.11: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.11: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.11: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.56.11:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+Pinging db01 [192.168.56.15] with 32 bytes of data:
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.56.15:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging mc01 [192.168.56.14] with 32 bytes of data:
+Reply from 192.168.56.14: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.14: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.14: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.14: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.56.14:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging db01 [192.168.56.15] with 32 bytes of data:
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.15: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.56.15:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging rmq01 [192.168.56.16] with 32 bytes of data:
+Reply from 192.168.56.16: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.16: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.16: bytes=32 time<1ms TTL=64
+Reply from 192.168.56.16: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.56.16:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+================================================================
